@@ -2,15 +2,129 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        .nav-wrapper {
+            background-color: #415068;
+        }
+
+        .nav-wrapper div {
+            display: none;
+        }
+
+        
+        .nav-wrapper .hamburger,
+        .nav-wrapper .branding {
+            display: inline-block;
+        }
+
+        .nav-wrapper .link {
+            display: block;
+            text-align: center;
+            padding: 1em;
+            background: #223047;
+            font-family: sans-serif;
+            color: white;
+        }
+
+        .nav-wrapper .link:hover,
+        .nav-wrapper .link:active {
+            color: #223047;
+            background: white;
+        }
+
+        .nav-wrapper .branding {
+            width: 10em;
+            text-align: center;
+            color: white;
+            font-family: sans-serif;
+            padding: 1em;
+        }
+
+        .nav-wrapper a {
+            text-decoration: none;
+        }
+
+        .nav-wrapper .hamburger{
+            color: black;
+            padding: 1em;
+        }
+        @media (min-width: 800px) {
+            .nav-wrapper {
+                display: flex;
+            }
+
+            .nav-wrapper .left-links,
+            .nav-wrapper .right-links {
+                display: flex;
+                flex: 1;
+            }
+
+            .nav-wrapper .link {
+                width: auto;
+            }
+
+            .nav-wrapper .right-links {
+                justify-content: flex-end;
+            }
+
+            .nav-wrapper .hamburger {
+                display: none;
+            }
+
+        }
+
+        @media (max-width: 800px) {
+            .nav-wrapper.active .hamburger{
+                background: #223047;
+                color: white;
+            }
+           
+            .nav-wrapper .branding {
+                text-align: left;
+            }
+
+            .nav-wrapper.active div {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Hello Flexbox</h1>
+    <div class="nav-wrapper">
+        <a href="#" class="hamburger" id="navHamburger">
+            <i class="fas fa-bars"></i>
+        </a>
 
-    <p>Whassup</p>
+        <a href="#" class="branding">Chandler Eyre</a>
+
+        <div class="left-links">
+            <a href="#" class="link">Link 1</a>
+            <a href="#" class="link">Link 2</a>
+        </div>
+
+        <div class="right-links">
+            <a href="#" class="link">Link 3</a>
+        </div>
+
+    </div>
     
-</body> 
+</body>
+
+<script>
+    const navHamburger = document.querySelector("#navHamburger");
+    navHamburger.addEventListener('click', (e) => {
+        navHamburger.parentElement.classList.toggle('active');
+    })
+
+</script>
+
 </html>
